@@ -9,6 +9,8 @@ let name="Deepak"
 let age=18
 let isLoggedIn=false
 
+//documentation :mdn and ecma standards
+
 //number=>2 to power either 53 or 52
 //big int
 //string=> ""
