@@ -51,3 +51,30 @@ const MyFunction=function(){
 // Object (native and does not implement [[Call]]) =>	 "object"
 // Object (native or host and does implement [[Call]]) =>	"function"
 // Object (host and does not implement [[Call]]) =>	Implementation-defined except may not be "undefined", "boolean", "number", or "string".
+
+
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Stack(Primitive type)  by value    ,Heap(Non-primitive type) by reference
+let aName="Abhi"
+let otherName=aName;
+otherName="Ram"
+
+console.log(aName)
+console.log(otherName)
+
+
+let userOne={
+    email:"abs@gmail.com",
+    upi:"xy@ybl",
+
+}
+
+let userTwo=userOne
+
+userTwo.email="def@gmail.com"
+console.log(userOne.email)
+console.log(userTwo.email)
