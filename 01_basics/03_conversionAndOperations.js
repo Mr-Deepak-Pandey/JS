@@ -27,6 +27,34 @@ console.log(bool)
 
 let num=33
 let str=String(num)
-console.log(typeof str)
-console.log(str)
+// console.log(typeof str)
+// console.log(str)
+
+// ********************Operations ********************
+let value1=3
+let negvalue =-value1
+// console.log(negvalue);
+
+// console.log(2+2);
+// console.log(2-2);
+// console.log(2*2)
+// console.log(2**3)
+// console.log(2/3)
+// console.log(2%3)
+
+
+let str1="hello"
+let str2=" Deepak"
+let str3=str1 +str2
+console.log(str3)
+
+
+console.log("1"+2);
+console.log(1+"2");
+console.log("1"+2+2)//agar pehle string hai toh sbhi ko string ki trah treat kiya jayega
+console.log(1+2+"2")//agar string baad me hai toh pehle conversions ho jayega
+
+//refer to ecma standards(tc39)  abstract operations for better understanding
+
+// "https://tc39.es/ecma262/#sec-abstract-operations"
 
