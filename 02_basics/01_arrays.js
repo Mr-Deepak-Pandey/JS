@@ -1,4 +1,7 @@
 //array
+//javascript array resizable hota hai apna,aur zero indexing hoti hai
+//javascript array copy operations jo hota hai woh shallow copies bnate hai woh yaani by referencce 
+//aur javascript array me different datatypes ke variable bhi ho skte hai
 
 const myArr=[0,1,2,3,4,5,6]
 console.log(myArr[1])
