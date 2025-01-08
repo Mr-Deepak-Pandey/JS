@@ -14,6 +14,10 @@ console.log(otherNumber.toPrecision(4));
 const hundreds=100000000;
 console.log(hundreds.toLocaleString('en-IN'))
 
+
+const a=124
+console.log(a.Epsilon())
+
 // ++++++++++++++++++++++ Maths ++++++++++++++++++++++++++++++++++++++++++++++++
 // console.log(Math);
 // console.log(Math.abs(-34))

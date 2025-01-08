@@ -27,7 +27,7 @@ console.log(newString);
 
 //slice negative value  bhi le leta hai starting index ki yaani reverse me pichre se bhi count krke
 //yha length 8 thi toh starting -8 diya hai
-const anotherString=gameName.slice(-8,4)
+const anotherString=gameName.slice(-9,6)
 console.log(anotherString)
 
 
@@ -42,7 +42,6 @@ console.log(url.replace('%20','-'));//replaces the value paased by searching it 
 console.log(url.includes('deepak'))//checks if the string contains the value passed in parenthesis and return true or false
 
 console.log(gameName.split('-'));//splits the string on the basis of separator and gives an array
-
 
 
 
