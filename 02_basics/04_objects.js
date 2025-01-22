@@ -80,3 +80,57 @@ console.log(Object.entries(tinderUser))//return as array of array ,key value pai
  console.log(tinderUser.hasOwnProperty('isLoggedin'))//checks whether object has that property or not
 
 
+
+ //destructuring object
+
+ const course={
+    courseName:"Js in hindi",
+    price:999,
+    courseInstructor:"hitesh"
+ }
+
+ //normally
+ //course.courseInstructor
+
+ //ye bhi shi hai pr syntactiaclly sugaring
+ const {courseInstructor}=course//destructuring
+
+ console.log(courseInstructor)//ab direct access kr skte hai
+ //naam bda lgg rha ho toh 
+ const {courseName:cName}=course
+ console.log(cName)//aise woh bhi ho jayega
+
+ //same way me destructuring react me bhi hoti hai direct {} llga ke methods me
+
+ //APIs
+
+ //ab backend se jo hmara paas kuch values aati hai
+ //pehle ke time me xml me aati thi
+ //abhi JSON me aati hai
+
+ //JSON kya hai..hmara simple object hai
+
+ //aise 
+//  {
+//     "courseName":"Js in hindi",
+//     "price":999,
+//     "courseInstructor":"Hitesh",
+//     "isLoggedIn":false
+
+//  }
+ //iss way me hmara data aata hai kuch jismekeys values dono as a string aata hai,haan numbers boolean alg data type hai toh ye aise hi aate hai
+
+ //some times data as an array of objects bhi aata hai
+//iss type me
+
+//  [
+//     {},
+//     {
+
+//     },{
+
+//     }
+//  ]
+
+//toh bss apna kaam kya hia ,apne paas issi trah se API calls waghera aaati hai toh bss apne ko dekhna hai fetch krek ki kis type ka data hai
+//phir isko objects me ya understandable format me kr dete hai phir use krte hai
