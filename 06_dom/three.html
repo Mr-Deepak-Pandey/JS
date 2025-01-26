@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM creating Element | Chai aur Code</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+
+    
+</body>
+<script>
+    const div=document.createElement("div");
+    console.log(div);
+    div.className="main";
+    div.id="myId";
+    div.id=Math.round(Math.random()*10+1);
+    //ab kuch attributes to h by default hote hai hmesha kaam aate hai toh direct set krte hai 
+    //aur attributes set krne hai toh stAttribute method use krna hai jis lement ke attribute create krne hai useke saath 
+    //e.g
+    div.setAttribute('title',"Generated title");
+
+    //adding styling
+    div.style.backgroundColor="aqua";
+    div.style.padding='10px';
+    div.innerText="Chai aur code ";//pr ye jo method hai ye override krta hai ...jb bhi aise krte hai direct element.innerText ya kuch bhi .. pehle ye jaata hai fetch krke laata hai phir usko override krta hai
+    //on the contrary sis ehi jo set attribute hai woh sidhe set krta hai attribute aise double kaam nhi
+   
+   //othe way to do 
+    const addText= document.createTextNode("Chai aur Code");
+
+   div.appendChild(addText);
+
+   //pr hmne abb itna kuch kr toh diya element create kr diya pr woh abhi page prr toh aaya hi nhi
+    //kyonki ye sbb abhi hmne jo kra hai woh memory ke andar hai abhi hmne usko page se attach hi nhi kra
+    //toh ab document ko jb bolenge ki iss element ko attach toh kro apne saath
+
+   //ab div ko attach kr dete hai page se
+   document.body.appendChild(div);
+
+
+    const nameArray=["Hitesh Choudhary","Deepak pandey","Baaki Ek aur","Ek aur chalo","ye aakhiri waala"];
+    const colorArray=["green","orange","blue","pink","yellow"];
+
+    nameArray.forEach( (name,index)=> addDiv(name,colorArray[index]))
+
+
+    //lo ek alg se function bhi bna diya 5 lement add krne ke liye
+    function addDiv(name,col){
+    const div=document.createElement("div");
+    console.log(div);
+    div.className="main";
+    div.id="myId";
+    div.id=Math.round(Math.random()*10+1);
+    
+    div.setAttribute('title',"Generated title");
+
+    
+    div.style.backgroundColor=col;
+    div.style.padding='10px';
+    // div.innerText="Chai aur code ";
+
+  const addText= document.createTextNode("name");
+   div.appendChild(addText);
+   document.body.appendChild(div);
+    }
+
+    
+
+
+
+
+
+</script>
+</html>
