@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur Code</title>
+</head>
+<body style="background-color: black;color: aqua;">
+    <ul class="language">
+        <li>JavaScript</li>
+
+    </ul>
+    
+</body>
+<script> 
+    //ye waala method element add krne ke liye optimized nhi hai kyonki ye hrr baar poora traverse krta hai 
+    //phir add krta hai
+    function addLanguage(lang){
+        const li=document.createElement('li');
+        li.innerHTML=`${lang}`;
+        //li.innerHTML=lang;//works both
+        document.querySelector(".language").appendChild(li);
+    }
+
+    addLanguage('Java')
+    addLanguage('Python' );
+
+
+    //this one is optimized
+    function addOptiLang(lang){
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(lang));//hmne pehle createTextNode se text create krke phir usko created list element me append kr diya...always try to use this way of appendchild instead of innerHTML for big programs
+        
+        //aur direct phir atatch kr diya required class se
+        document.querySelector('.language').appendChild(li);
+    }
+    addOptiLang('TypeScript')
+    addOptiLang('GoLang')
+
+
+    //edit elements
+    //nth-child select krne ke liye nth waala
+    const secondLang=document.querySelector('li:nth-child(2)');
+
+    console.log(secondLang);
+    //secondLang.innerHTML="Ruby";//direct change kr skte hai ek toh 
+
+
+    //doosra ya toh hum ek naya list item bna ke phir usme text ko add krke usko replace krr skte hai seedhe jisko edit krna hai uss se 
+    const newLi=document.createElement('li');
+    newLi.textContent="Ruby";
+    secondLang.replaceWith(newLi)
+
+    //edit 
+    //ya toh hum seedhe outerHTML ka use krke change kr skte hai ...isme tag bhi mention krna pdega
+    const firstLang=document.querySelector('li:first-child');
+    firstLang.outerHTML='<li>Assembly </li>'
+
+    //remove
+    const lastLang=document.querySelector('li:last-Child');
+    lastLang.remove();
+
+
+
+
+</script>
+</html>
