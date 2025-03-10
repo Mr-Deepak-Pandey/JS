@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <!-- //but this onclick practice isn't good when we scale the project -->
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+       
+   </div>
+</body>
+<script>
+        //events 
+        //javascript ek sequentially run language hai
+        //events bhi sequentially run hote hai
+        //haan there are some exceptions 
+
+
+
+        //abb events ko handle krne ke liye basically 3,4 tarikke hot hai 
+        //jaise ek toh hum direct jis image pe ya jha bhi hme click event waala lgana hai usko uss tag me direct use kr lo like onclick ko img tag me direct 
+
+        //second method
+        // document.getElementById('owl').onclick=function(){
+        //     alert("Owl clicked");
+        // }
+
+        //aur some methods  are 
+        //attachEvent():ye early time pe jb internet explorer pe  use krte the
+
+        //jQuery ek frameworrk hai ye bhi pehle use hota tha kaafi- onEvent()
+        //but ye method koi aise extra features nhi provide krata isliye best way is to use event listeners
+        //aur event propgation ka bhi concept deta hai
+
+        //things to study in events add event listener
+        //type,timeStamp,defaultPrevent
+        //target,toElement,srcElement,currentTarget
+        //clientX,clientY,screenX,screenY,
+        //altKey,ctrlKey,shiftKey,keyCode
+
+
+        //ab event propgation me do mode hote hai
+        //ek event bubbling aur ek event capturing 
+        //false rehta hai toh event bubbling
+        //true then event capturing
+        //by defult event bubbling hota hai
+
+
+        //here event bubbling
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log(' clicked inside the UL ');
+        // },false);//third parameter is for event bubbling
+ 
+
+        // document.getElementById('owl').addEventListener('click',function(){
+        //     console.log('Owl clicked')
+        // },false);
+        //isme ab jb owl pe click krenge toh pehle owl clicked message aayega then clicked inside the UL
+        //bcz in event bubbling just like bubble goes from down to up
+
+        //event capturing "top to down jaata hai isme
+        //propgation can be stoppped too using stop propgation if we want
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log(' clicked inside the UL ');
+        //     e.stopPropagation();
+        // },true);//third parameter is for event bubbling
+ 
+
+        // document.getElementById('owl').addEventListener('click',function(e){
+        //     console.log('Owl clicked')
+        //     // e.stopPropagation; abhi capturing hai to upar waale me lgayenge stop propgation
+
+        // },true);
+
+        //upar waala code comment nhi kra tha event capturing waala tb niche apna preventdefault chal nhi rha tha
+        
+        //preventDefault
+    //     document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log(e.target.parentNode);
+        
+        //li pe click krenge toh uska parent UL toh poora hi delete ho jayega isliye check 
+        if(e.target.tagName==='IMG')
+       { let removeIt=e.target.parentNode;
+        removeIt.remove();
+        //doosra method
+        //removeIt.parentNode.removeChild(removeIt);
+       }
+
+        
+
+    },false)
+
+
+
+
+
+</script>
+</html>
