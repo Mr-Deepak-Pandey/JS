@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Chai aur JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <div id="newText"></div>
+
+    
+
+</body>
+
+<script>
+    //set interval aur set timeout dono hi handler function aur timeout lete hai parameters me..aur handler kya hai ek callback function hi hai
+    //yha handler ki jgah diect function ya function ka regference bhi de dkte hai
+
+    //aur set interval method me ek teesra parameter bhi hota hai...jha pe um function ko parameter paas kr skte hai
+    
+    
+    //jb koi change kr rhe ho kuch add kr rhe ho khi pe toh uss time dhyann rkhna ki poore pe change na kr rha ho jaisde abhi body ke inneerHTML pe direct change krne ki kosisi kr rhe tha 
+
+    //ERROR:You're modifying the entire innerHTML of <body> dynamically on each interval, which rewrites the entire DOM, including your <button> elements. This causes the event listeners on the "Start" and "Stop" buttons to be removed, preventing the "Stop" button from working after a few seconds.
+    const printSomething=function(str){
+        console.log(str,"Deepak",Date.now());
+
+        const newParagraph=document.createElement("p");
+        newParagraph.textContent=`${str}, "Deepak" ${Date.now()} `;
+        
+        document.querySelector('#newText').appendChild(newParagraph);
+    }
+    
+    let intervalId=null;
+     
+    document.querySelector('#start').addEventListener('click',function(){
+        if(!intervalId)
+        intervalId=setInterval(printSomething,1000,"Hii");
+
+    })
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        if(intervalId)
+    {
+        clearInterval(intervalId);
+        intervalId=null;
+        console.log("Stopped");
+    }
+    })
+
+
+    
+
+</script>
+
+</html>
