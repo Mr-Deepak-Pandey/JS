@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color:brown;">
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+    
+
+</body>
+<script>
+    //setTimeOut()
+    //ye actually me ek method hai pr ye kya krta hai ki API ko bhi call krta hai
+
+    //clearTimeout()
+    //setInterval()
+    //clearInterval()
+    //aur all these functions aren't the part of core java,all these functions are provided by browser,API or running environment to us
+    
+     const askForChai=function(){
+        console.log("Chai pii lo");
+     };
+     
+     const changeText=function(){
+        document.querySelector('h1').innerHTML="Chai aur Coffee";
+     }
+
+    const id=setTimeout(changeText,1000);
+
+    
+    //toh ab agar text change hone se pehle stop pe click kr denge toh woh action perform nhi hoga
+    
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(id);
+        console.log("Stopped");
+
+    })
+
+
+</script>
+
+</html>
